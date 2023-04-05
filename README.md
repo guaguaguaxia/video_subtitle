@@ -3,9 +3,9 @@
 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Issues](https://img.shields.io/github/issues/yourusername/openai-whisper-subtitle-generator.svg)](https://github.com/guaguaguaxia/video_subtitle/issues)
-[![Forks](https://img.shields.io/github/forks/yourusername/openai-whisper-subtitle-generator.svg)](https://github.com/guaguaguaxia/video_subtitle/network)
-[![Stars](https://img.shields.io/github/stars/yourusername/openai-whisper-subtitle-generator.svg)](https://github.com/guaguaguaxia/video_subtitle/stargazers)
+[![Issues](https://img.shields.io/github/issues/guaguaguaxia/video_subtitle.svg)](https://github.com/guaguaguaxia/video_subtitle/issues)
+[![Forks](https://img.shields.io/github/forks/guaguaguaxia/video_subtitle.svg)](https://github.com/guaguaguaxia/video_subtitle/network)
+[![Stars](https://img.shields.io/github/stars/guaguaguaxia/video_subtitle.svg)](https://github.com/guaguaguaxia/video_subtitle/stargazers)
 
 The OpenAI Whisper Video Subtitle Generator is a project that utilizes the OpenAI Whisper API to generate subtitles in any language for any video. The goal of this project is to help users easily create multilingual subtitles for video content, increasing the accessibility and reach of the videos.
 
