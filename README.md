@@ -1,27 +1,26 @@
 # OpenAI Whisper Video Subtitle Generator
 
-![banner](https://some-url.com/banner.png)
+
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Issues](https://img.shields.io/github/issues/yourusername/openai-whisper-subtitle-generator.svg)](https://github.com/yourusername/openai-whisper-subtitle-generator/issues)
-[![Forks](https://img.shields.io/github/forks/yourusername/openai-whisper-subtitle-generator.svg)](https://github.com/yourusername/openai-whisper-subtitle-generator/network)
-[![Stars](https://img.shields.io/github/stars/yourusername/openai-whisper-subtitle-generator.svg)](https://github.com/yourusername/openai-whisper-subtitle-generator/stargazers)
+[![Issues](https://img.shields.io/github/issues/yourusername/openai-whisper-subtitle-generator.svg)](https://github.com/guaguaguaxia/video_subtitle/issues)
+[![Forks](https://img.shields.io/github/forks/yourusername/openai-whisper-subtitle-generator.svg)](https://github.com/guaguaguaxia/video_subtitle/network)
+[![Stars](https://img.shields.io/github/stars/yourusername/openai-whisper-subtitle-generator.svg)](https://github.com/guaguaguaxia/video_subtitle/stargazers)
 
 The OpenAI Whisper Video Subtitle Generator is a project that utilizes the OpenAI Whisper API to generate subtitles in any language for any video. The goal of this project is to help users easily create multilingual subtitles for video content, increasing the accessibility and reach of the videos.
 
-## Table of Contents
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Contribute](#contribute)
-- [License](#license)
 
-## Features
-- Generate subtitles for videos in any language supported by OpenAI Whisper API.
-- Customize font style, size, and color.
-- Export subtitles in popular formats like SRT, VTT, and ASS.
-- Batch processing for multiple videos.
+### how to use
+1. Clone the repository and ensure you have python enviroment and OpenAI api key
+2. Run the following command
+```
+python .\make_subtitle.py --api_key xxx --work_dir xxx --video_file xxx --src_language en --dest_language chinese --proxy xx
+```
 
-## Installation
-1. Clone the repository:
+### parameter explain
+- api_key: OpenAI api key
+- work_dir: the directory to save the all the files 
+- video_file: the video file name,like xxx.mp4
+- src_language: the source language of the video,like `en`,and read [this document]("https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes") to get the language code
+- dest_language: the language you want to generate,like chinese,english
+- proxy: the proxy to use,like `http://127.0.0.1:7890`
