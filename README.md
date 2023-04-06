@@ -1,6 +1,6 @@
+**[中文](./README-CN.md) | English**
+
 # OpenAI Whisper Video Subtitle Generator
-
-
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Issues](https://img.shields.io/github/issues/guaguaguaxia/video_subtitle.svg)](https://github.com/guaguaguaxia/video_subtitle/issues)
