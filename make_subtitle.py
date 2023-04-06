@@ -10,6 +10,8 @@ import requests
 from moviepy.audio.io.AudioFileClip import AudioFileClip
 from pydub import AudioSegment
 
+from utils import LANGUAGES
+
 
 def video_to_audio(video_file, audio_file, work_dir):
     file_to_convert = AudioFileClip(work_dir + "\\" + video_file)
@@ -222,5 +224,9 @@ if __name__ == '__main__':
     if proxy:
         os.environ["http_proxy"] = proxy
         os.environ["https_proxy"] = proxy
+
+    src_language = LANGUAGES.get(src_language)
+    if src_language is None:
+        raise Exception("wrong src_language,please check it")
 
     main(api_key, work_dir, video_file, audio_file_path, src_language, dest_language)

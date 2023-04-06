@@ -13,13 +13,13 @@ OpenAI Whisper 视频字幕生成器是一个利用 OpenAI Whisper API 为任何
 1. 隆代码库并确保您有 python 环境和 OpenAI api key。
 2. 运行以下命令：
 ```
-python .\make_subtitle.py --api_key xxx --work_dir xxx --video_file xxx --src_language en --dest_language chinese --proxy xx
+python make_subtitle.py --api_key xxx --work_dir xxx --video_file xxx --src_language en --dest_language chinese --proxy xx
 ```
 
 ### 参数说明
 - api_key: OpenAI api key
 - work_dir: 保存所有临时文件的目录
 - video_file: 视频文件名，例如 xxx.mp4
-- src_language: 视频的源语言,比如 `en`,参考 [此文档]("https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes") 获取语言代码
-- dest_language: 您想要生成的语言，如 chinese,english 等
+- src_language: 视频的源语言,比如 `english`、`japanese` 等
+- dest_language: 您想要生成的语言，如 `chinese`、`english` 等
 - proxy: 要使用的代理，比如 `http://127.0.0.1:7890`
