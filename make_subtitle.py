@@ -1,15 +1,20 @@
 import argparse
+import itertools
 import json
 import math
 import os
 import re
 
+import book_maker
 import openai as openai
 import pysrt
 import requests
 from moviepy.audio.io.AudioFileClip import AudioFileClip
 from pydub import AudioSegment
 
+
+from chatgptapi_translator import ChatGPTAPI
+from srt_loader import SRTBookLoader
 from utils import LANGUAGES
 
 
@@ -57,8 +62,10 @@ def transcribe_single_audio(api_key, audio_file, new_file_path, src_language):
 
 
 def get_all_srt(api_key, basic_file_path, src_language, size):
+    apikeys = itertools.cycle(api_key.split(","))
     for i in range(1, size + 1):
-        transcribe_single_audio(api_key, basic_file_path + "\\chunk_%s.mp3" % str(i),
+        random_key = next(apikeys)
+        transcribe_single_audio(random_key, basic_file_path + "\\chunk_%s.mp3" % str(i),
                                 basic_file_path + "\\chunk_%s.srt" % str(i), src_language)
 
 
@@ -129,13 +136,13 @@ def translate_davinci(api_key, text, language):
     return t_text
 
 
-def joint_srt(work_dir, size):
-    f = open(work_dir + "\\result.srt", "a+")
+def joint_srt(work_dir, size, minute):
+    f = open(work_dir + "\\result.srt", "w", encoding="utf-8")
     result_srt = pysrt.open(work_dir + "\\result.srt")
     index = 1
     for i in range(1, size + 1):
-        chunk_srt = pysrt.open(work_dir + "\\chunk_new_%s.srt" % i)
-        chunk_srt.shift(seconds=(i - 1) * 60 * 10)
+        chunk_srt = pysrt.open(work_dir + "\\chunk_%s.srt" % i)
+        chunk_srt.shift(seconds=(i - 1) * 60 * minute)
         for j in chunk_srt:
             j.index = index
             result_srt.append(j)
@@ -144,13 +151,25 @@ def joint_srt(work_dir, size):
 
 
 def main(api_key, work_dir, video_file, audio_file, src_language, language):
-    minute = 10
+    minute = 15
     # num_chunks = 2
     video_to_audio(video_file, audio_file, work_dir)
     num_chunks = split_audio_file(audio_file, work_dir, minute)
     get_all_srt(api_key, work_dir, src_language, num_chunks)
-    translate_all_subtitle(api_key, work_dir, language, num_chunks)
-    joint_srt(work_dir, num_chunks)
+    joint_srt(work_dir, num_chunks, minute)
+
+
+    translate_model = ChatGPTAPI
+
+    e = SRTBookLoader(
+        work_dir + "\\result.srt",
+        translate_model,
+        api_key,
+        False,
+        language=language,
+    )
+    e.make_bilingual_book()
+    # translate_all_subtitle(api_key, work_dir, language, num_chunks)
 
 
 def check_api_key(api_key):
@@ -167,6 +186,8 @@ def check_api_key(api_key):
 
 
 if __name__ == '__main__':
+
+
     parser = argparse.ArgumentParser()
 
     audio_file_path = "mp3file.mp3"
@@ -228,5 +249,8 @@ if __name__ == '__main__':
     src_language = LANGUAGES.get(src_language)
     if src_language is None:
         raise Exception("wrong src_language,please check it")
+
+
+
 
     main(api_key, work_dir, video_file, audio_file_path, src_language, dest_language)

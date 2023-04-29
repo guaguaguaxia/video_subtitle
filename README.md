@@ -18,7 +18,7 @@ python make_subtitle.py --api_key xxx --work_dir xxx --video_file xxx --src_lang
 ```
 
 ### parameter explain
-- api_key: OpenAI api key
+- api_key: OpenAI api key,like `sk-xxx,sk-xxx,sk-xxx`
 - work_dir: the directory to save the all the files 
 - video_file: the video file name,like xxx.mp4
 - src_language: the source language of the video,like `en`

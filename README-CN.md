@@ -17,7 +17,7 @@ python make_subtitle.py --api_key xxx --work_dir xxx --video_file xxx --src_lang
 ```
 
 ### 参数说明
-- api_key: OpenAI api key
+- api_key: OpenAI api key ，例如 `sk-xxx,sk-xxx,sk-xxx`
 - work_dir: 保存所有临时文件的目录
 - video_file: 视频文件名，例如 xxx.mp4
 - src_language: 视频的源语言,比如 `english`、`japanese` 等
