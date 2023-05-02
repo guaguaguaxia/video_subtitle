@@ -12,7 +12,8 @@ The OpenAI Whisper Video Subtitle Generator is a project that utilizes the OpenA
 
 ### how to use
 1. Clone the repository and ensure you have python enviroment and OpenAI api key
-2. Run the following command
+2. make sure you have installed ffmpeg and configured the environment variables
+3. Run the following command
 ```
 python make_subtitle.py --api_key xxx --work_dir xxx --video_file xxx --src_language en --dest_language chinese --proxy xx
 ```

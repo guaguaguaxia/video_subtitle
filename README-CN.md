@@ -10,8 +10,9 @@
 OpenAI Whisper 视频字幕生成器是一个利用 OpenAI Whisper API 为任何视频生成任何语言的字幕的项目。
 
 ### 使用方法
-1. 隆代码库并确保您有 python 环境和 OpenAI api key。
-2. 运行以下命令：
+1. 克隆代码库并确保您有 python 环境、 OpenAI api key。
+2. 确保你本地有安装 ffmpeg 并配置了环境变量。
+3. 运行以下命令：
 ```
 python make_subtitle.py --api_key xxx --work_dir xxx --video_file xxx --src_language en --dest_language chinese --proxy xx
 ```
